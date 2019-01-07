@@ -162,6 +162,13 @@ describe('verify test for all apis!', () => {
     expect(verify.isEven(13)).toBeFalsy()
   })
 
+  it('--------test: Check if it is a mobile device--------', () => {
+    expect(verify.isMobileDevice(window.navigator.userAgent)).toBeFalsy()
+    const fakeMobileUserAgent =
+      'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Mobile Safari/537.36'
+    expect(verify.isMobileDevice(fakeMobileUserAgent)).toBeTruthy()
+  })
+
   it('--------test: if Andriod device check---------', () => {
     expect(verify.isAndroid(window.navigator.userAgent)).toBeFalsy()
   })

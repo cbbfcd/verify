@@ -24,6 +24,17 @@ const IDCARD_REG: RegExp = /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}
 const CARNO_REG: RegExp = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}\·?[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/
 const PHONE_REG: RegExp = /^1(?:3[0-9]|4[5-9]|5[0-9]|6[12456]|7[0-8]|8[0-9]|9[0-9])[0-9]{8}$/
 
+const agents: Array<string> = [
+  'Android',
+  'iPhone',
+  'webOS',
+  'BlackBerry',
+  'SymbianOS',
+  'Windows Phone',
+  'iPad',
+  'iPod'
+]
+
 const isUrlHelper = (url: string): Boolean => URL_REG.test(url)
 const isNanHelper = (input: any) => input !== input
 const isIntegerHelper = (input: any) => verify.isNumber(input) && input % 1 === 0
@@ -33,6 +44,8 @@ const isAndroidHelper = (input: string) =>
   verify.isString(input) && (!!~input.indexOf('Android') || !!~input.indexOf('Adr'))
 const isIosHelper = (input: string) =>
   verify.isString(input) && !!input.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+const isMobileDeviceHelper = (input: string) =>
+  verify.isString(input) && agents.some(agent => input.indexOf(agent) > 0)
 const isJsonStrHelper = (input: string) => {
   try {
     const obj = JSON.parse(input)
@@ -94,6 +107,7 @@ namespace verify {
   export const isPhone = (input: any) => isString(input) && PHONE_REG.test(input)
   export const isAndroid = isAndroidHelper
   export const isIOS = isIosHelper
+  export const isMobileDevice = isMobileDeviceHelper
 }
 
 export default verify

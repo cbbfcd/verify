@@ -145,4 +145,8 @@ verify.isAndroid(window.navigator.userAgent)
 
 Check if the operating system is IOS
 
+### 28. verify.isMobileDevice(userAgent: string)
+
+Check if it is a mobile device
+
 
