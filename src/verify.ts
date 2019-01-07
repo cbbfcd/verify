@@ -1,3 +1,5 @@
+import { isUrlHelper } from './isUrl'
+
 enum TYPE_ENUM {
   string = 'String',
   boolean = 'Boolean',
@@ -26,6 +28,7 @@ const toStringCheck = <T>(type: KEYS_FOR_TYPE_ENUM) => (value: unknown): value i
 
 namespace verify {
   export const isString = toStringCheck<string>('string')
+  export const isUrl = isUrlHelper
 }
 
 export default verify
