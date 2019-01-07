@@ -71,6 +71,11 @@ return true if the input is a plain object. otherwise return false instead.
 
 return true if the input is a dom node. otherwise return false instead.
 
+```js
+const divNode = document.createElement('div')
+verify.isDomNode(divNode)
+```
+
 ### 13. verify.isNull(input: any)
 
 return true if the input is null. otherwise return false instead.
@@ -107,6 +112,11 @@ return true if the input is an id card number str(for china). otherwise return f
 
 return true if the input is a car plate number str(for china). otherwise return false instead.
 
+```js
+verify.isPlateNumber('川A·B45N4') // true
+verify.isPlateNumber('川AB45N4') // true
+```
+
 ### 22. verify.isPhone(input: string)
 
 return true if the input is a phone number str(for china). otherwise return false instead.
@@ -126,6 +136,10 @@ Check if it is even
 ### 26. verify.isAndroid(userAgent: string)
 
 Check if the operating system is Android
+
+```js
+verify.isAndroid(window.navigator.userAgent)
+```
 
 ### 27. verify.isIOS(userAgent: string)
 
