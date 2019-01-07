@@ -2,7 +2,12 @@
   "name": "verify",
   "version": "1.0.0",
   "description": "a simple type checking tool with TypeScript",
-  "keywords": ["verify", "utils", "validate", "check"],
+  "keywords": [
+    "verify",
+    "utils",
+    "validate",
+    "check"
+  ],
   "main": "dist/verify.umd.js",
   "module": "dist/verify.es5.js",
   "typings": "dist/types/verify.d.ts",

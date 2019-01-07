@@ -1,14 +1,12 @@
-import DummyClass from "../src/verify"
+import verify from '../src/verify'
 
 /**
- * Dummy test
+ * verify test
  */
-describe("Dummy test", () => {
-  it("works if true is truthy", () => {
-    expect(true).toBeTruthy()
-  })
-
-  it("DummyClass is instantiable", () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+describe('verify test', () => {
+  it('--------test-01: string type check---------', () => {
+    expect(verify.isString('hello world')).toBeTruthy()
+    expect(verify.isString({})).toBeFalsy()
+    expect(verify.isString(123)).toBeFalsy()
   })
 })

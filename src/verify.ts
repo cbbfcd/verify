@@ -1,42 +1,31 @@
-class Verify {
-  
-  private toStringCheck = (target: any, type: string) => ({}).toString.call(target) === `[object ${type}]`
-
-  isBoolean(target: any){
-    return this.toStringCheck(target, 'Boolean')
-  }
-
-  isNumber(target: any){
-    return this.toStringCheck(target, 'Number')
-  }
-
-  isString(target: any){
-    return this.toStringCheck(target, 'String')
-  }
-
-  isFunction(target: any){
-    return this.toStringCheck(target, 'Function')
-  }
-
-  isArray(target: any){
-    return this.toStringCheck(target, 'Array')
-  }
-
-  isDate(target: any){
-    return this.toStringCheck(target, 'Date')
-  }
-
-  isRegExp(target: any){
-    return this.toStringCheck(target, 'RegExp')
-  }
-
-  isObject(target: any){
-    return this.toStringCheck(target, 'Object')
-  }
-
-  isError(target: any){
-    return this.toStringCheck(target, 'Error')
-  }
+enum TYPE_ENUM {
+  string = 'String',
+  boolean = 'Boolean',
+  function = 'Function',
+  array = 'Array',
+  number = 'Number',
+  date = 'Date',
+  regexp = 'RegExp',
+  object = 'Object',
+  error = 'Error'
 }
 
-export default new Verify()
+type KEYS_FOR_TYPE_ENUM =
+  | 'string'
+  | 'boolean'
+  | 'function'
+  | 'array'
+  | 'number'
+  | 'date'
+  | 'regexp'
+  | 'object'
+  | 'error'
+
+const toStringCheck = <T>(type: KEYS_FOR_TYPE_ENUM) => (value: unknown): value is T =>
+  ({}.toString.call(value) === `[object ${TYPE_ENUM[type]}]`)
+
+namespace verify {
+  export const isString = toStringCheck<string>('string')
+}
+
+export default verify
