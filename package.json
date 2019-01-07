@@ -17,7 +17,7 @@
   "author": "cbbfcd <2890636389@qq.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/cbbfcd/verify"
   },
   "license": "MIT",
   "engines": {
@@ -67,7 +67,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
+        "branches": 85,
         "functions": 95,
         "lines": 95,
         "statements": 95
