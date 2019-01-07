@@ -3,7 +3,7 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/cbbfcd/verify.svg?branch=master)](https://travis-ci.org/cbbfcd/verify)
-[![Coverage Status](https://coveralls.io/repos/github/cbbfcd/fire/badge.svg)](https://coveralls.io/github/cbbfcd/fire)
+[![Coverage Status](https://coveralls.io/repos/github/cbbfcd/verify/badge.svg?branch=master)](https://coveralls.io/github/cbbfcd/verify?branch=master)
 
 > a simple type checking tool with TypeScript
 
