@@ -118,6 +118,58 @@ describe('verify test for all apis!', () => {
     expect(verify.isNullOrUndefined(1)).toBeFalsy()
   })
 
+  it('--------test: email type check---------', () => {
+    expect(verify.isEmail('1234234@qq.com')).toBeTruthy()
+    expect(verify.isEmail('1234234@gmail.com')).toBeTruthy()
+    expect(verify.isEmail('1234234gmail.com')).toBeFalsy()
+    expect(verify.isEmail(123)).toBeFalsy()
+  })
+
+  it('--------test: idcard type check---------', () => {
+    expect(verify.isIdCard('51012219920510767x')).toBeTruthy()
+    expect(verify.isIdCard('123123123123123123')).toBeFalsy()
+  })
+
+  it('--------test: car plate number type check---------', () => {
+    expect(verify.isPlateNumber('川A·B45N4')).toBeTruthy()
+    expect(verify.isPlateNumber('川AB45N4')).toBeTruthy()
+    expect(verify.isPlateNumber('川A45N4')).toBeFalsy()
+    expect(verify.isPlateNumber('川A·45N4')).toBeFalsy()
+  })
+
+  it('--------test: phone number type check---------', () => {
+    expect(verify.isPhone('13021821456')).toBeTruthy()
+    expect(verify.isPhone('15123442344')).toBeTruthy()
+    expect(verify.isPhone('1512344344')).toBeFalsy()
+  })
+
+  it('--------test: integer type check---------', () => {
+    expect(verify.isInteger(12)).toBeTruthy()
+    expect(verify.isInteger(2e3)).toBeTruthy()
+    expect(verify.isInteger(-123)).toBeTruthy()
+    expect(verify.isInteger(-1.23)).toBeFalsy()
+  })
+
+  it('--------test: odd number type check---------', () => {
+    expect(verify.isOdd(13)).toBeTruthy()
+    expect(verify.isOdd(-13)).toBeTruthy()
+    expect(verify.isOdd(-14)).toBeFalsy()
+  })
+
+  it('--------test: even number type check---------', () => {
+    expect(verify.isEven(12)).toBeTruthy()
+    expect(verify.isEven(-12)).toBeTruthy()
+    expect(verify.isEven(13)).toBeFalsy()
+  })
+
+  it('--------test: if Andriod device check---------', () => {
+    expect(verify.isAndroid(window.navigator.userAgent)).toBeFalsy()
+  })
+
+  it('--------test: if IOS device check---------', () => {
+    expect(verify.isIOS(window.navigator.userAgent)).toBeFalsy()
+  })
+
   it('--------test: url type check---------', () => {
     expect(verify.isUrl('http://www.google.com')).toBeTruthy()
     expect(

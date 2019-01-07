@@ -23,7 +23,7 @@ import verify from 'verfify'
 
 > more case can found in ./test/verify.test.ts
 
-### 1. verify.isString(input: any)
+### 1. verify.isString(input: string)
 
 return true if the input is a string. otherwise return false instead.
 
@@ -79,7 +79,7 @@ return true if the input is null. otherwise return false instead.
 
 return true if the input is undefined. otherwise return false instead.
 
-### 15. verify.isJsonStr(input: any)
+### 15. verify.isJsonStr(input: string)
 
 return true if the input is standard json str. otherwise return false instead.
 
@@ -87,11 +87,48 @@ return true if the input is standard json str. otherwise return false instead.
 
 return true if the input is NaN. otherwise return false instead.
 
-### 17. verify.isUrl(input: any)
+### 17. verify.isUrl(input: string)
 
 return true if the input is an url. otherwise return false instead.
 
 ### 18. verify.isNullOrUndefined(input: any)
 
 return true if the input is null or undefined. otherwise return false instead.
+
+### 19. verify.isEmail(input: string)
+
+return true if the input is an email str. otherwise return false instead.
+
+### 20. verify.isIdCard(input: string)
+
+return true if the input is an id card number str(for china). otherwise return false instead.
+
+### 21. verify.isPlateNumber(input: string)
+
+return true if the input is a car plate number str(for china). otherwise return false instead.
+
+### 22. verify.isPhone(input: string)
+
+return true if the input is a phone number str(for china). otherwise return false instead.
+
+### 23. verify.isInteger(input: number)
+
+return true if the input is a integer number str. otherwise return false instead.
+
+### 24. verify.isOdd(input: number)
+
+Check if it is odd
+
+### 25. verify.isEven(input: number)
+
+Check if it is even
+
+### 26. verify.isAndroid(userAgent: string)
+
+Check if the operating system is Android
+
+### 27. verify.isIOS(userAgent: string)
+
+Check if the operating system is IOS
+
 
