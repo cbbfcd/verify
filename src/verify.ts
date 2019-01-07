@@ -28,7 +28,9 @@ const isJsonStrHelper = (input: string) => {
   try {
     const obj = JSON.parse(input)
     if (obj && typeof obj === 'object') return true
-  } catch (error) {}
+  } catch (error) {
+    console.error(error)
+  }
   return false
 }
 
@@ -60,7 +62,7 @@ namespace verify {
   export const isArray = Array.isArray || toStringCheckHelper<Array<any>>('array')
   export const isDate = toStringCheckHelper<Date>('date')
   export const isNumber = toStringCheckHelper<number>('number')
-  export const isInfinity = (input: unknown) => input === Infinity || input === -Infinity
+  export const isInfinity = (input: any) => input === Infinity || input === -Infinity
   export const isBoolean = toStringCheckHelper<boolean>('boolean')
   export const isError = toStringCheckHelper<Error>('error')
   export const isRegExp = toStringCheckHelper<RegExp>('regexp')
@@ -68,9 +70,9 @@ namespace verify {
   export const isFunction = toStringCheckHelper<Function>('function')
   export const isPlainObject = isPlainObjectHelper
   export const isDomNode = isDomNodeHelper
-  export const isNull = (input: unknown): input is null => input === null
-  export const isUndefined = (input: unknown): input is undefined => input === void 0
-  export const isNullOrUndefined = (input: unknown) => isNull(input) || isUndefined(input)
+  export const isNull = (input: any) => input === null
+  export const isUndefined = (input: any) => input === void 0
+  export const isNullOrUndefined = (input: any) => isNull(input) || isUndefined(input)
   export const isJsonStr = isJsonStrHelper
   export const isNaN = isNanHelper
   export const isUrl = isUrlHelper
