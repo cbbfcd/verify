@@ -1,4 +1,4 @@
-# verify
+# verify-tool
 
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Greenkeeper badge](https://badges.greenkeeper.io/alexjoverm/typescript-library-starter.svg)](https://greenkeeper.io/)
@@ -10,11 +10,11 @@
 ## Useage
 
 ```js
-npm install verify -D
+npm install verify-tool -D
 // or
-yarn install verify --dev
+yarn install verify-tool --dev
 
-import verify from 'verfify'
+import verify from 'verify-tool'
 ```
 
 ## API
