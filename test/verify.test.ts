@@ -200,6 +200,14 @@ describe('verify test for all apis!', () => {
     test()
   })
 
+  it('--------test: if is a promise---------', () => {
+    const promise = new Promise(() => {})
+    const fake_promise = { then() {}, catch() {} }
+    expect(verify.isPromise(promise)).toBeTruthy()
+    expect(verify.isPromise(fake_promise)).toBeTruthy()
+    expect(verify.isPromise({})).toBeFalsy()
+  })
+
   it('--------test: url type check---------', () => {
     expect(verify.isUrl('http://www.google.com')).toBeTruthy()
     expect(

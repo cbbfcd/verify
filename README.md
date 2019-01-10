@@ -157,4 +157,12 @@ Check if the input value is '' or [] or {}
 
 Check if it is arguments
 
+### 31. verify.isPromise(input: any)
+
+Check if it is Promise or a fake promise, like this:
+
+```js
+{then(){}, catch(){}}
+```
+
 

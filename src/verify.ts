@@ -8,7 +8,8 @@ enum TYPE_ENUM {
   regexp = 'RegExp',
   object = 'Object',
   error = 'Error',
-  arguments = 'Arguments'
+  arguments = 'Arguments',
+  promise = 'Promise'
 }
 
 type DomElement = object & { nodeType: 1; nodeName: string }
@@ -56,6 +57,12 @@ const isIosHelper = (input: string) =>
   verify.isString(input) && !!input.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
 const isMobileDeviceHelper = (input: string) =>
   verify.isString(input) && agents.some(agent => input.indexOf(agent) > 0)
+const isFakePromiseHelper = (input: any) =>
+  !verify.isNullOrUndefined(input) &&
+  typeof input === 'object' &&
+  typeof input.then === 'function' &&
+  typeof input.catch === 'function'
+const isNativePromiseHelper = toStringCheckHelper<Promise<unknown>>('promise')
 const isJsonStrHelper = (input: string) => {
   try {
     const obj = JSON.parse(input)
@@ -113,6 +120,8 @@ namespace verify {
   export const isJsonStr = isJsonStrHelper
   export const isNaN = isNanHelper
   export const isUrl = isUrlHelper
+  export const isPromise = (input: any) =>
+    isNativePromiseHelper(input) || isFakePromiseHelper(input)
   export const isEmail = (input: any) => isString(input) && EMAIL_REG.test(input)
   export const isIdCard = (input: any) => isString(input) && IDCARD_REG.test(input)
   export const isPlateNumber = (input: any) => isString(input) && CARNO_REG.test(input)
