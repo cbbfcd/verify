@@ -149,4 +149,12 @@ Check if the operating system is IOS
 
 Check if it is a mobile device
 
+### 29. verify.isEmpty(input: string|array|object)
+
+Check if the input value is '' or [] or {}
+
+### 30. verify.isArguments(input: any)
+
+Check if it is arguments
+
 

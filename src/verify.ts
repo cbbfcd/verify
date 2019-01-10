@@ -7,7 +7,8 @@ enum TYPE_ENUM {
   date = 'Date',
   regexp = 'RegExp',
   object = 'Object',
-  error = 'Error'
+  error = 'Error',
+  arguments = 'Arguments'
 }
 
 type DomElement = object & { nodeType: 1; nodeName: string }
@@ -40,6 +41,15 @@ const isNanHelper = (input: any) => input !== input
 const isIntegerHelper = (input: any) => verify.isNumber(input) && input % 1 === 0
 const isOddHelper = (input: any) => verify.isNumber(input) && (input % 2 === 1 || input % 2 === -1)
 const isEvenHelper = (input: any) => verify.isNumber(input) && input % 2 === 0
+const isEmptyHelper = (input: string | Array<any> | object) => {
+  const len = Object.getOwnPropertyNames(input).length
+  return (
+    input === '' ||
+    (verify.isObject(input) && len === 0) ||
+    (verify.isArray(input) && len === 1) ||
+    (verify.isArguments(input) && len === 2)
+  )
+}
 const isAndroidHelper = (input: string) =>
   verify.isString(input) && (!!~input.indexOf('Android') || !!~input.indexOf('Adr'))
 const isIosHelper = (input: string) =>
@@ -95,6 +105,8 @@ namespace verify {
   export const isFunction = toStringCheckHelper<Function>('function')
   export const isPlainObject = isPlainObjectHelper
   export const isDomNode = isDomNodeHelper
+  export const isArguments = toStringCheckHelper<any>('arguments')
+  export const isEmpty = isEmptyHelper
   export const isNull = (input: any) => input === null
   export const isUndefined = (input: any) => input === void 0
   export const isNullOrUndefined = (input: any) => isNull(input) || isUndefined(input)

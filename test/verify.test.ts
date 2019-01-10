@@ -177,6 +177,28 @@ describe('verify test for all apis!', () => {
     expect(verify.isIOS(window.navigator.userAgent)).toBeFalsy()
   })
 
+  it('--------test: if is an arguments---------', () => {
+    let arg = {}
+    expect(verify.isArguments(arg)).toBeFalsy()
+    function test() {
+      expect(verify.isArguments(arguments)).toBeTruthy()
+    }
+    test()
+  })
+
+  it('--------test: if is empty---------', () => {
+    expect(verify.isEmpty({})).toBeTruthy()
+    expect(verify.isEmpty({ a: 123 })).toBeFalsy()
+    expect(verify.isEmpty([])).toBeTruthy()
+    expect(verify.isEmpty([1])).toBeFalsy()
+    expect(verify.isEmpty('')).toBeTruthy()
+    expect(verify.isEmpty('123')).toBeFalsy()
+    function test() {
+      expect(verify.isEmpty(arguments)).toBeTruthy()
+    }
+    test()
+  })
+
   it('--------test: url type check---------', () => {
     expect(verify.isUrl('http://www.google.com')).toBeTruthy()
     expect(
