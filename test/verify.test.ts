@@ -12,6 +12,7 @@ describe('verify test for all apis!', () => {
   it('--------test: string type check---------', () => {
     expect(verify.isString('hello world')).toBeTruthy()
     expect(verify.isString('')).toBeTruthy()
+    expect(verify.isString('🦄')).toBeTruthy()
     expect(verify.isString({})).toBeFalsy()
     expect(verify.isString(123)).toBeFalsy()
   })
