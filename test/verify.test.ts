@@ -208,6 +208,15 @@ describe('verify test for all apis!', () => {
     expect(verify.isPromise({})).toBeFalsy()
   })
 
+  it('--------test: Object.is polygill ---------', () => {
+    expect(verify.is(1, 1)).toBeTruthy()
+    expect(verify.is(0, -0)).toBeFalsy()
+    expect(verify.is(NaN, NaN)).toBeTruthy()
+    expect(verify.is('123', '123')).toBeTruthy()
+    expect(verify.is([1], [1])).toBeFalsy()
+    expect(verify.is(Infinity, -Infinity)).toBeFalsy()
+  })
+
   it('--------test: url type check---------', () => {
     expect(verify.isUrl('http://www.google.com')).toBeTruthy()
     expect(

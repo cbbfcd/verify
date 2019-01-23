@@ -73,6 +73,10 @@ const isJsonStrHelper = (input: string) => {
   return false
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+const isPolyfill = (x: any, y: any): boolean =>
+  x === y ? x !== 0 || 1 / x === 1 / y : x !== x && y !== y
+
 // https://github.com/reduxjs/redux/blob/master/src/utils/isPlainObject.js
 const isPlainObjectHelper = (input: any) => {
   if (typeof input !== 'object' || input === null) return false
@@ -129,6 +133,7 @@ namespace verify {
   export const isAndroid = isAndroidHelper
   export const isIOS = isIosHelper
   export const isMobileDevice = isMobileDeviceHelper
+  export const is = isPolyfill
 }
 
 export default verify

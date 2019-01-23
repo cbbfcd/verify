@@ -165,4 +165,8 @@ Check if it is Promise or a fake promise, like this:
 {then(){}, catch(){}}
 ```
 
+### 32. verify.is(x: any, y: any)
+
+the polyfill of `Object.is()`
+
 
